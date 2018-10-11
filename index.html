@@ -10,95 +10,152 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/contract.js"> </script>
     <link rel="stylesheet" href="index.css">
-    <title>contract</title>
+    <title>Charle Schwab</title>
 </head>
+
 <body>
 
-        <div class="container">
-                <div class="wrapper">
-                    <!-- <div class="arrow-steps clearfix">
-                        <div class="step current"> <span>ABOUT YOU</span> </div>
-                        <div class="step"> <span>PROJECT INFO</span> </div>
-                        <div class="step"> <span> TAXT INFO </div>
-                        <div class="step"> <span>ADDITIONAL INFO</span> </div>
-                        <div class="step"> <span>I9 INFO </span> </div>
-                        <div class="step"> <span>REVIEW AND SUBMIT</span> </div>
-                    </div> -->
-        
+    <div class="container">
+        <div class="wrapper">
+            <div class="arrow-steps clearfix">
+                <div class="step current"> <span>Personal Information</span> </div>
+                <div class="step"> <span>Account Features </span> </div>
+                <div class="step"> <span> Terms and Conditions  </div>
+                <div class="arrow-step clearfix">
+                    <div class="steps"> <span> Funding</span> </div>
+                </div>
+            </div>
+        </div><br>
+        <form onsubmit="return validation()" novalidate>
+        <p class="text1">Provide Your Personal Information.</p><br>
 
-  <p class="text1">Provide Your Personal Information.</p>
-  <div class="form-group">
-    <div class="col-md-5">
-      <label for="inputName" class="control-label">First Name</label>
-      <input type="text" class="form-control" id="inputName" required>
-    </div>
-    <div class="col-md-5">
-      <label for="inputName" class="control-label">Middle Name</label>
-      <input type="text" class="form-control" id="inputName" required>
-    </div>
-  </div><br><br><br><br>
-  <div class="form-group">
-    <div class="col-md-5">
-      <label for="inputName" class="control-label">Last Name</label>
-      <input type="text" class="form-control" id="inputName" required>
-    </div>
-    <div class="col-md-5">
-      <label>Seuffix(Optional)</label>
-      <select class="form-control">
-        <option>DDS</option>
-        <option>DMD</option>
-        <option>DO</option>
-        <option>DVM</option>
-        <option>ESQ</option>
-        <option>II</option>
-        <option>III</option>
-        <option>IV</option>
-        <option>JR</option>
-        <option>MD</option>
-        <option>PHD</option>
-        <option>SR</option>
-        <option>V</option>
-      </select>
-    </div>
-  </div><br><br><br>
-  <div class="form-group">
-    <label for="inputEmail" class="control">Email</label>
-    <input type="email" class="form-control" id="inputEmail" placeholder=" " data-error="Bruh, that email address is invalid"
-      required>
-  </div>
-  <div class="form-group">
-    <div class="col-md-5">
-      <label for="inputName" class="control-label">Social Security Number</label>
-      <input type="text" class="form-control" id="inputName" required>
-    </div>
-    <div class="col-md-5">
-      <label for="inputName" class="control-label">Date of Birth mm/dd/yyyy</label>
-      <input type="date" class="form-control" id="inputName" required>
-    </div>
-  </div><br><br><br><br>
-  <div class="form-group">
-    <label for="inputName" class="control">Mother's Maiden Name</label>
-    <input type="text" class="form-control" id="input" placeholder=" " required>
-</div>
-    <p class="form-group">
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label>First Name</label>
+                    <input type="text" name="user" class="form-control" id="user" required>
+                    <span id="username" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputName" class="control-label">Middle Name</label>
+                    <input type="text" name="middle" class="form-control" id="middle" required>
+                    <span id="middlename" class="text-danger font-weight-bold"></span>
+                </div>
+            </div><br><br><br><br>
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label for="inputName" class="control-label">Last Name</label>
+                    <input type="text" name="last" class="form-control" id="last" required>
+                    <span id="lastname" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="col-md-6">
+                    <label>Seuffix(Optional)</label>
+                    <select class="form-control">
+                        <option>DDS</option>
+                        <option>DMD</option>
+                        <option>DO</option>
+                        <option>DVM</option>
+                        <option>ESQ</option>
+                        <option>II</option>
+                        <option>III</option>
+                        <option>IV</option>
+                        <option>JR</option>
+                        <option>MD</option>
+                        <option>PHD</option>
+                        <option>SR</option>
+                        <option>V</option>
+                    </select>
+                </div>
+            </div><br><br><br>
+            <div class="form-group">
 
-      By providing your contact information you consent to receive marketing and other communications<br>
-      from Schwab whether or not you open an account. Read more about privacy at Schwab,
-      including how <br>your information may be used and how you may limit certain use, in our
-      <a href="#">Privacy Policy</a>
-    </p>
-    <div class="row">
-      <div class="col-md-5"></div>
-      <div class="col-md-1">
-        <button type="button" class="btn">Back</button>
-      </div>
-      <div class="col-md-1">
-        <button type="button" class="btn btn-success">Next</button>
-      </div>
-      <div class="col-md-5"></div>
-    </div><br> 
-</div>
-</div>
+                <div class="col-md-12">
+                    <label for="inputName" class="control">Email</label>
+                    <input type="email" name="email" class="form-control" id="email" placeholder=" " required>
+                    <span id="mail" class="text-danger font-weight-bold"></span><br>
+
+                </div>
+            </div><br>
+            <div class="form-group">
+                <div class="col-md-6">
+                    <label for="inputName" class="control-label">Social Security Number</label>
+                    <input type="text" name="social" class="form-control" id="social" required>
+                    <span id="socialsecurity" class="text-danger font-weight-bold"></span>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputName" class="control-label">Date of Birth mm/dd/yyyy</label>
+                    <input type="text" name="date" class="form-control" id="date" required>
+                    <span id="dob" class="text-danger font-weight-bold"></span><br>
+                </div>
+            </div><br><br><br><br>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label for="inputName" class="control">Mother's Maiden Name</label>
+                    <input type="text" name="mother" class="form-control" id="mother" placeholder=" " required>
+                    <span id="mothername" class="text-danger font-weight-bold"></span>
+                </div>
+            </div><br><br><br><br>
+            <h5 class="data">
+
+                By providing your contact information you consent to receive marketing and other communications<br>
+                from Schwab whether or not you open an account. Read more about privacy at Schwab,
+                including how <br>your information may be used and how you may limit certain use, in our
+                <a href="#">Privacy Policy</a>
+            </h5><br>
+            <div class="form-group">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <button type="button" class="btn">Back</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" name="submit" value="submit" class="btn btn-success">Next</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div><br>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        function validation() {
+            var user = document.getElementById('user').value;
+            var middle = document.getElementById('middle').value;
+            var last = document.getElementById('last').value;
+            var email = document.getElementById('email').value;
+            var social = document.getElementById('social').value;
+            var mother = document.getElementById('mother').value;
+            if (user == "") {
+                document.getElementById('username').innerHTML = "please fill the field"
+                return false;
+
+            }
+
+            if (middle == "") {
+                document.getElementById('middlename').innerHTML = "please fill the field"
+                return false;
+            }
+            if (last == "") {
+                document.getElementById('lastname').innerHTML = "please fill the field"
+                return false;
+            }
+            if (email == "") {
+                document.getElementById('mail').innerHTML = "please fill the field"
+                return false;
+            }
+            if (date == "") {
+                document.getElementById('dob').innerHTML = "please fill the field"
+                return false;
+            }
+            if (social == "") {
+                document.getElementById('socialsecurity').innerHTML = "please fill the field"
+                return false;
+            }
+            if (mother == "") {
+                document.getElementById('mothername').innerHTML = "please fill the field"
+                return false;
+            }
+        }
+
+
+    </script>
 </body>
 
 </html>
