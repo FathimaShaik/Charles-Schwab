@@ -27,6 +27,7 @@
             console.log("downloaded the sdk")
             MessengerExtensions.getUserID(function success(uids) {
                 // User ID was successfully obtain
+                alert(uids)
                 var psid = uids.psid;
                 alert(psid)
             }, function error(err, errorMessage) {
