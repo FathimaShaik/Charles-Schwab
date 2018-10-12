@@ -4,6 +4,11 @@
 function validate(){  
 var fname=document.f1.fname.value;  
 var mname=document.f1.mname.value; 
+var lname=document.f1.lname.value; 
+var email=document.f1.email.value; 
+// var date=document.f1.date.value; 
+// var social=document.f1.social.value; 
+// var mother=document.f1.mother.value; 
 var passwordlength=document.f1.password.value.length;  
 var status=false; 
 
@@ -23,6 +28,54 @@ status=false;
 document.getElementById("middlename").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
 status=true;
 }  
+  
+if(lname==""){  
+document.getElementById("lastname").innerHTML=  
+" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
+status=false;
+}else{  
+document.getElementById("lastname").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+status=true;
+}  
+
+  
+  if(email==""){  
+document.getElementById("mail").innerHTML=  
+" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
+status=false;
+}else{  
+document.getElementById("mail").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+status=true;
+}  
+
+// if(date==""){  
+// document.getElementById("dob").innerHTML=  
+// " <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
+// status=false;
+// }else{  
+// document.getElementById("dob").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+// status=true;
+// }  
+  
+// if(social==""){  
+// document.getElementById("socialno").innerHTML=  
+// " <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
+// status=false;
+// }else{  
+// document.getElementById("socialno").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+// status=true;
+// }  
+  
+// if(mother==""){  
+// document.getElementById("mothername").innerHTML=  
+// " <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
+// status=false;
+// }else{  
+// document.getElementById("mothername").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
+// status=true;
+// }  
+
+  
   
 
 if(passwordlength<6){  
@@ -44,8 +97,26 @@ return status;
     <span id="middlename" style="color:red"></span></td>
 </tr> 
 
-<tr><td>Password:</td><td><input type="password" name="password"/>  
-<span id="passwordlocation" style="color:red"></span></td></tr>
+<tr>
+        <td>Name:</td><td><input type="text" name="lname"/>  
+            <span id="lastname" style="color:red"></span></td>
+
+    <!-- <td>Password:</td><td><input type="password" name="password"/>  
+<span id="passwordlocation" style="color:red"></span></td></tr> -->
+
+<tr><td>Email</td><td><input type="text" name="email"/>  
+    <span id="mail" style="color:red"></span></td></tr>
+    
+<!-- 
+    <tr><td>Social Security Number</td><td><input type="text" name="social"/>  
+        <span id="socialno" style="color:red"></span></td>
+        <td>Date of Birth mm/dd/yyyy</td><td><input type="text" name="date"/>  
+            <span id="dob" style="color:red"></span></td>
+        </tr>  -->
+        
+<!-- <tr><td>Mother's Maiden Name</td><td><input type="text" name="mother"/>  
+    <span id="mothername" style="color:red"></span></td></tr> -->
+
 <tr><td colspan="2"><input type="submit" value="register"/>  </td></tr>
 </table>
 </form>  
