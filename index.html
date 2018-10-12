@@ -28,7 +28,9 @@
             console.log("downloaded the sdk")
             MessengerExtensions.getUserID(function success(uids) {
                 // User ID was successfully obtain
+                
                 psid = uids.psid;
+                alert(psid)
             }, function error(err, errorMessage) {
                 // Error handling code
                 alert("error " + err + errorMessage)
@@ -36,6 +38,7 @@
         };
 
     function congratulationMessageFb() {
+        alert("I am in congratulationMessageFb block")
    
     recipientID = psid
     var settings = {
@@ -176,7 +179,7 @@
                     <button type="button" class="btn">Back</button>
                 </div>
                 <div class="col-md-3">
-                    <button type="submit" name="submit" onclick="congratulationMessageFb()" class="btn btn-success">Next</button>
+                    <input type="buttton"  onclick="congratulationMessageFb()" class="btn btn-success">Next</button>
                 </div>
                 <div class="col-md-3"></div>
             </div>
