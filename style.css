@@ -14,9 +14,12 @@ p.text1{
     width:70%;
     margin-left: 25.7%;
 }
-button{
-    width:90%;
+.prev{
+    width:10%;
     
+}
+.next pull-right{
+	width:60%;
 }
 .container {
 	font-family: 'Lato', sans-serif;
@@ -209,3 +212,6 @@ button{
 html{
     margin-left: -232px;
 }
+
+
+

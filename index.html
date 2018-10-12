@@ -2,15 +2,39 @@
 <html lang="en">
 
 <head>
+
+<script src="https://connect.facebook.com/en_US/messenger.Extensions.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/contract.js"> </script>
-    <link rel="stylesheet" href="index.css">
-    <title>Charle Schwab</title>
+    <script src="main.js"> </script>
+    <link rel="stylesheet" href="style.css">
+    <title>Charles Schwab</title>
+    <script>
+             (function(d, s, id){
+               var js, fjs = d.getElementsByTagName(s)[0];
+               if (d.getElementById(id)) {return;}
+               js = d.createElement(s); js.id = id;
+               js.src = "https://connect.facebook.com/en_US/messenger.Extensions.js";
+               fjs.parentNode.insertBefore(js, fjs);
+             }(document, 'script', 'Messenger'));
+            window.extAsyncInit = function () {
+                var isSupported = MessengerExtensions.isInExtension(); 
+                alert(isSupported);
+                // the Messenger Extensions JS SDK is done loading
+                MessengerExtensions.getContext('YOU_APP_ID', 
+                  function success(result){
+                    alert("Success: "+result.psid);
+                  },
+                  function error(result){
+                    alert(JSON.stringify(result));
+                  }
+                );
+            };
+        </script>
 </head>
 
 <body>
@@ -20,15 +44,12 @@
             <div class="arrow-steps clearfix">
                 <div class="step current"> <span>Personal Information</span> </div>
                 <div class="step"> <span>Account Features </span> </div>
-                <div class="step"> <span> Terms and Conditions  </div>
-                <div class="arrow-step clearfix">
-                    <div class="steps"> <span> Funding</span> </div>
-                </div>
+                <div class="step"> <span> Terms and Conditions </div>
+                <div class="step"> <span> Funding</span> </div>
             </div>
         </div><br>
         <form onsubmit="return validation()" novalidate>
-        <p class="text1">Provide Your Personal Information.</p><br>
-
+            <p class="text1">Provide Your Personal Information.</p><br>
             <div class="form-group">
                 <div class="col-md-6">
                     <label>First Name</label>
@@ -37,19 +58,19 @@
                 </div>
                 <div class="col-md-6">
                     <label for="inputName" class="control-label">Middle Name</label>
-                    <input type="text" name="middle" class="form-control" id="middle" required>
+                    <input type="text" name="middle" class="form-control" id="middle" data-validate="true">
                     <span id="middlename" class="text-danger font-weight-bold"></span>
                 </div>
             </div><br><br><br><br>
             <div class="form-group">
                 <div class="col-md-6">
                     <label for="inputName" class="control-label">Last Name</label>
-                    <input type="text" name="last" class="form-control" id="last" required>
+                    <input type="text" name="last" class="form-control" id="last" data-validate="true">
                     <span id="lastname" class="text-danger font-weight-bold"></span>
                 </div>
                 <div class="col-md-6">
                     <label>Seuffix(Optional)</label>
-                    <select class="form-control">
+                    <select class="form-control" data-validate="true">
                         <option>DDS</option>
                         <option>DMD</option>
                         <option>DO</option>
@@ -70,7 +91,7 @@
 
                 <div class="col-md-12">
                     <label for="inputName" class="control">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder=" " required>
+                    <input type="email" name="email" class="form-control" id="email" data-validate="true">
                     <span id="mail" class="text-danger font-weight-bold"></span><br>
 
                 </div>
@@ -78,19 +99,19 @@
             <div class="form-group">
                 <div class="col-md-6">
                     <label for="inputName" class="control-label">Social Security Number</label>
-                    <input type="text" name="social" class="form-control" id="social" required>
+                    <input type="text" name="social" class="form-control" id="social" data-validate="true">
                     <span id="socialsecurity" class="text-danger font-weight-bold"></span>
                 </div>
                 <div class="col-md-6">
                     <label for="inputName" class="control-label">Date of Birth mm/dd/yyyy</label>
-                    <input type="text" name="date" class="form-control" id="date" required>
+                    <input type="text" name="date" class="form-control" id="date" data-validate="true">
                     <span id="dob" class="text-danger font-weight-bold"></span><br>
                 </div>
             </div><br><br><br><br>
             <div class="form-group">
                 <div class="col-md-12">
                     <label for="inputName" class="control">Mother's Maiden Name</label>
-                    <input type="text" name="mother" class="form-control" id="mother" placeholder=" " required>
+                    <input type="text" name="mother" class="form-control" id="mother" data-validate="true">
                     <span id="mothername" class="text-danger font-weight-bold"></span>
                 </div>
             </div><br><br><br><br>
@@ -111,7 +132,12 @@
                 </div>
                 <div class="col-md-3"></div>
             </div><br>
-        </form>
+           
+            <!-- <div class="nav clearfix">
+                <button href="#" class="prev">Previous</button>
+                <button href="#" class="next pull-right">Next</button>
+                </div> -->
+    </form>
     </div>
 
     <script type="text/javascript">
@@ -153,9 +179,12 @@
                 return false;
             }
         }
-
+     
 
     </script>
+
+
+
 </body>
 
 </html>
