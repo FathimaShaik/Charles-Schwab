@@ -14,30 +14,25 @@
     <link rel="stylesheet" href="style.css">
     <title>Charles Schwab</title>
     <script>
-        //        (function(d, s, id){
-        //   var js, fjs = d.getElementsByTagName(s)[0];
-        //   if (d.getElementById(id)) {return;}
-        //   js = d.createElement(s); js.id = id;
-        //   js.src = "https://connect.facebook.com/en_US/messenger.Extensions.js";
-        //   fjs.parentNode.insertBefore(js, fjs);
-        // }(document, 'script', 'Messenger'));
-        window.onload = function () {
-            //window.extAsyncInit = function () {
-                var isSupported = MessengerExtensions.isInExtension();
-                alert(isSupported);
-                // the Messenger Extensions JS SDK is done loading
-                MessengerExtensions.getContext('2156709724594310',
-                    function success(result) {
-                        alert("Success: " + result.psid);
-                    },
-                    function error(result) {
-                        alert("error is "+JSON.stringify(result));
-                    }
-                );
-            };
+        (function (d, s, id) {
+            console.log("downloading the sdk ..")
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.com/en_US/messenger.Extensions.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'Messenger'));
 
-
-       // }
+        window.extAsyncInit = function () {
+            console.log("downloaded the sdk")
+            MessengerExtensions.getUserID(function success(uids) {
+                // User ID was successfully obtain
+                var psid = uids.psid;
+            }, function error(err, errorMessage) {
+                // Error handling code
+                alert("error " + err + errorMessage)
+            });
+        };
     </script>
 </head>
 
@@ -46,14 +41,23 @@
     <div class="container">
         <div class="wrapper">
             <div class="arrow-steps clearfix">
-                <div class="step current"> <span>Personal Information</span> </div>
-                <div class="step"> <span>Account Features </span> </div>
-                <div class="step"> <span> Terms and Conditions </div>
-                <div class="step"> <span> Funding</span> </div>
+                <div class="step current">
+                    <span>Personal Information</span>
+                </div>
+                <div class="step">
+                    <span>Account Features </span>
+                </div>
+                <div class="step">
+                    <span> Terms and Conditions </div>
+                <div class="step">
+                    <span> Funding</span>
+                </div>
             </div>
-        </div><br>
+        </div>
+        <br>
         <form onsubmit="return validation()" novalidate>
-            <p class="text1">Provide Your Personal Information.</p><br>
+            <p class="text1">Provide Your Personal Information.</p>
+            <br>
             <div class="form-group">
                 <div class="col-md-6">
                     <label>First Name</label>
@@ -65,7 +69,11 @@
                     <input type="text" name="middle" class="form-control" id="middle" data-validate="true">
                     <span id="middlename" class="text-danger font-weight-bold"></span>
                 </div>
-            </div><br><br><br><br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
             <div class="form-group">
                 <div class="col-md-6">
                     <label for="inputName" class="control-label">Last Name</label>
@@ -90,16 +98,21 @@
                         <option>V</option>
                     </select>
                 </div>
-            </div><br><br><br>
+            </div>
+            <br>
+            <br>
+            <br>
             <div class="form-group">
 
                 <div class="col-md-12">
                     <label for="inputName" class="control">Email</label>
                     <input type="email" name="email" class="form-control" id="email" data-validate="true">
-                    <span id="mail" class="text-danger font-weight-bold"></span><br>
+                    <span id="mail" class="text-danger font-weight-bold"></span>
+                    <br>
 
                 </div>
-            </div><br>
+            </div>
+            <br>
             <div class="form-group">
                 <div class="col-md-6">
                     <label for="inputName" class="control-label">Social Security Number</label>
@@ -109,23 +122,33 @@
                 <div class="col-md-6">
                     <label for="inputName" class="control-label">Date of Birth mm/dd/yyyy</label>
                     <input type="text" name="date" class="form-control" id="date" data-validate="true">
-                    <span id="dob" class="text-danger font-weight-bold"></span><br>
+                    <span id="dob" class="text-danger font-weight-bold"></span>
+                    <br>
                 </div>
-            </div><br><br><br><br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
             <div class="form-group">
                 <div class="col-md-12">
                     <label for="inputName" class="control">Mother's Maiden Name</label>
                     <input type="text" name="mother" class="form-control" id="mother" data-validate="true">
                     <span id="mothername" class="text-danger font-weight-bold"></span>
                 </div>
-            </div><br><br><br><br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
             <h5 class="data">
 
-                By providing your contact information you consent to receive marketing and other communications<br>
-                from Schwab whether or not you open an account. Read more about privacy at Schwab,
-                including how <br>your information may be used and how you may limit certain use, in our
+                By providing your contact information you consent to receive marketing and other communications
+                <br> from Schwab whether or not you open an account. Read more about privacy at Schwab, including how
+                <br>your information may be used and how you may limit certain use, in our
                 <a href="#">Privacy Policy</a>
-            </h5><br>
+            </h5>
+            <br>
             <div class="form-group">
                 <div class="col-md-3"></div>
                 <div class="col-md-3">
@@ -135,7 +158,8 @@
                     <button type="submit" name="submit" value="submit" class="btn btn-success">Next</button>
                 </div>
                 <div class="col-md-3"></div>
-            </div><br>
+            </div>
+            <br>
 
             <!-- <div class="nav clearfix">
                 <button href="#" class="prev">Previous</button>
