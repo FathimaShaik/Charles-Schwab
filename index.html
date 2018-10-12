@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Charles Schwab</title>
     <script>
+        var psid;
         (function (d, s, id) {
             console.log("downloading the sdk ..")
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -27,12 +28,32 @@
             console.log("downloaded the sdk")
             MessengerExtensions.getUserID(function success(uids) {
                 // User ID was successfully obtain
-                var psid = uids.psid;
+                psid = uids.psid;
             }, function error(err, errorMessage) {
                 // Error handling code
                 alert("error " + err + errorMessage)
             });
         };
+
+    function congratulationMessageFb() {
+   
+    recipientID = psid
+    var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://graph.facebook.com/v2.6/me/messages?access_token=EAAephB0EoIYBAEc6NGDwrMgUHOna5w0hyYuDCno9dCC9oSJ55OhKkZAjTAzZBgUizwLuksIu6i8Dv5IwaYd37PSYj1EgZBgBCJyhjTXSIc4EbtSnTRFRr8VkBIsKAKlYcElbz9zKoImdFVyiEnLJR675SKKt8EvZAVnixisIDRW5FDflA6kD",
+    "method": "POST",
+    "headers": {
+    "Content-Type": "application/json",
+    "Cache-Control": "no-cache"
+    },
+    "processData": false,
+    "data": "{\r\n \"messaging_type\": \"UPDATE\",\t\r\n \"recipient\":{\r\n \"id\":"+recipientID+"\r\n },\r\n \"message\":{\r\n \"text\":\"Congratulations!, You are all set up.\"\r\n }\r\n}\r\n\r\n"
+    }
+    $.ajax(settings).done(function (response) {
+    console.log(response); 
+    }); 
+    }
     </script>
 </head>
 
@@ -155,7 +176,7 @@
                     <button type="button" class="btn">Back</button>
                 </div>
                 <div class="col-md-3">
-                    <button type="submit" name="submit" value="submit" class="btn btn-success">Next</button>
+                    <button type="submit" name="submit" onclick="congratulationMessageFb()" class="btn btn-success">Next</button>
                 </div>
                 <div class="col-md-3"></div>
             </div>
