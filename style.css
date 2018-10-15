@@ -1,25 +1,15 @@
-p.text1{
-    /* text-align: center; */
+.info{
+    text-align: center;
     font-size: 30px;
     font-family: "Times New Roman", Times, serif;
-    margin-left: 34%;
 }
 .arrow-steps clearfix{
     margin-left: 20px;
 }
-.form-control{
-    width:100%;
-}
+
 .form-group{
     width:70%;
     margin-left: 25.7%;
-}
-.prev{
-    width:10%;
-    
-}
-.next pull-right{
-	width:60%;
 }
 .container {
 	font-family: 'Lato', sans-serif;
@@ -28,7 +18,7 @@ p.text1{
 
 } 
 .data{
-    margin-left: 28%;
+    /* margin-left: 28%; */
     font-size: 100%;
     font-family: 'Times New Roman',Arial, Helvetica, sans-serif Times, serif
 }
@@ -38,7 +28,7 @@ p.text1{
     /* display: table-cell; */
     /* height: 400px; */
     vertical-align: middle;
-    margin-left: 17%;
+    margin-left: 5%;
     
 }
 #inputEmail{
@@ -210,7 +200,35 @@ p.text1{
     border-left: 17px solid black;	
 }
 html{
-    margin-left: -232px;
+    margin-left: 30px;
 }
 
+	
+	.btn{
+width:50%;
+	}
+	select{
+		width:100%;
+		height:30px;
+		
+	}
+	.text{
+		text-align: center;
+		font-size: 30px;
+		font-family: "Times New Roman", Times, serif;
+	}
+	.form-control{
+		width:100%;
+	}
+	.form-group{
+		width:70%;
+		margin-left: 25.7%;
+	}
+	button{
+		width:100%;
+		
+	}
+	.html{
+		width:50%;
+	}
 

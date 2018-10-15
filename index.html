@@ -28,34 +28,35 @@
             console.log("downloaded the sdk")
             MessengerExtensions.getUserID(function success(uids) {
                 // User ID was successfully obtain
-                
+
                 psid = uids.psid;
-               
+
             }, function error(err, errorMessage) {
                 // Error handling code
                 alert("error " + err + errorMessage)
             });
         };
 
-    function congratulationMessageFb() {
-     
-    recipientID = psid
-    var settings = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://graph.facebook.com/v2.6/me/messages?access_token=EAAephB0EoIYBAEc6NGDwrMgUHOna5w0hyYuDCno9dCC9oSJ55OhKkZAjTAzZBgUizwLuksIu6i8Dv5IwaYd37PSYj1EgZBgBCJyhjTXSIc4EbtSnTRFRr8VkBIsKAKlYcElbz9zKoImdFVyiEnLJR675SKKt8EvZAVnixisIDRW5FDflA6kD",
-    "method": "POST",
-    "headers": {
-    "Content-Type": "application/json",
-    "Cache-Control": "no-cache"
-    },
-    "processData": false,
-    "data": "{\r\n \"messaging_type\": \"UPDATE\",\t\r\n \"recipient\":{\r\n \"id\":"+recipientID+"\r\n },\r\n \"message\":{\r\n \"text\":\"Congratulations!, You are all set up.\"\r\n }\r\n}\r\n\r\n"
-    }
-    $.ajax(settings).done(function (response) {
-    console.log(response); 
-    }); 
-    }
+        function congratulationMessageFb() {
+
+            recipientID = psid
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://graph.facebook.com/v2.6/me/messages?access_token=EAAephB0EoIYBAEc6NGDwrMgUHOna5w0hyYuDCno9dCC9oSJ55OhKkZAjTAzZBgUizwLuksIu6i8Dv5IwaYd37PSYj1EgZBgBCJyhjTXSIc4EbtSnTRFRr8VkBIsKAKlYcElbz9zKoImdFVyiEnLJR675SKKt8EvZAVnixisIDRW5FDflA6kD",
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "Cache-Control": "no-cache"
+                },
+                "processData": false,
+                "data": "{\r\n \"messaging_type\": \"UPDATE\",\t\r\n \"recipient\":{\r\n \"id\":" + recipientID + "\r\n },\r\n \"message\":{\r\n \"text\":\"Congratulations!, You are all set up.\"\r\n }\r\n}\r\n\r\n"
+            }
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+        }
+        close();
     </script>
 </head>
 
@@ -78,34 +79,32 @@
             </div>
         </div>
         <br>
-        <form onsubmit="return validation()" novalidate>
-            <p class="text1">Provide Your Personal Information.</p>
+        <form name="f1" id="myform" onsubmit="return validate()">
+
             <br>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label>First Name</label>
-                    <input type="text" name="user" class="form-control" id="user" required>
-                    <span id="username" class="text-danger font-weight-bold"></span>
+            <p class="info">Provide Your Personal Information.</p>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col col-md-3">
+                    <label>First Name</label><br>
+                    <input type="text" name="fname" class="form-control" />
+                    <span id="firstname" style="color:red"></span></div>
+                <div class="col-md-3">
+                    <label>Middle Name</label><br>
+                    <input type="text" name="mname" class="form-control">
+                    <span id="middlename" style="color:red"></span>
                 </div>
-                <div class="col-md-6">
-                    <label for="inputName" class="control-label">Middle Name</label>
-                    <input type="text" name="middle" class="form-control" id="middle" data-validate="true">
-                    <span id="middlename" class="text-danger font-weight-bold"></span>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label for="inputName" class="control-label">Last Name</label>
-                    <input type="text" name="last" class="form-control" id="last" data-validate="true">
-                    <span id="lastname" class="text-danger font-weight-bold"></span>
-                </div>
-                <div class="col-md-6">
-                    <label>Seuffix(Optional)</label>
-                    <select class="form-control" data-validate="true">
+                <div class="col-md-3"></div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col col-md-3">
+                    <label>Last Name</label>
+                    <input type="text" name="lname" class="form-control" />
+                    <span id="lastname" style="color:red"></span></div>
+                <div class="col-md-3">
+                    <label>Seuffix(Optional)</label><br>
+                    <select name="dropdown" class="form-control">
                         <option>DDS</option>
                         <option>DMD</option>
                         <option>DO</option>
@@ -120,71 +119,76 @@
                         <option>SR</option>
                         <option>V</option>
                     </select>
+                    <span id="drop" style="color:red"></span>
                 </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div class="form-group">
-
-                <div class="col-md-12">
-                    <label for="inputName" class="control">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" data-validate="true">
-                    <span id="mail" class="text-danger font-weight-bold"></span>
-                    <br>
-
-                </div>
-            </div>
-            <br>
-            <div class="form-group">
-                <div class="col-md-6">
-                    <label for="inputName" class="control-label">Social Security Number</label>
-                    <input type="text" name="social" class="form-control" id="social" data-validate="true">
-                    <span id="socialsecurity" class="text-danger font-weight-bold"></span>
-                </div>
-                <div class="col-md-6">
-                    <label for="inputName" class="control-label">Date of Birth mm/dd/yyyy</label>
-                    <input type="text" name="date" class="form-control" id="date" data-validate="true">
-                    <span id="dob" class="text-danger font-weight-bold"></span>
-                    <br>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="form-group">
-                <div class="col-md-12">
-                    <label for="inputName" class="control">Mother's Maiden Name</label>
-                    <input type="text" name="mother" class="form-control" id="mother" data-validate="true">
-                    <span id="mothername" class="text-danger font-weight-bold"></span>
-                </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h5 class="data">
-
-                By providing your contact information you consent to receive marketing and other communications
-                <br> from Schwab whether or not you open an account. Read more about privacy at Schwab, including how
-                <br>your information may be used and how you may limit certain use, in our
-                <a href="#">Privacy Policy</a>
-            </h5>
-            <br>
-            <div class="form-group">
                 <div class="col-md-3"></div>
-                <div class="col-md-3">
-                    <button type="button" class="btn">Back</button>
-                </div>
-                <div class="col-md-3">
-               
-                    <button onclick="congratulationMessageFb()" class="btn btn-success">Next</button>
+
+            </div> <br>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+
+                    <label for="inputName" class="control">Email Address</label><br>
+                    <input type="text" name="email" class="form-control" />
+                    <span id="mail" style="color:red"></span>
                 </div>
                 <div class="col-md-3"></div>
             </div>
-            <br>
+            <br><br>
 
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <label for="inputName" class="control-label">Social Security Number</label><br>
+                    <input type="text" name="social" class="form-control" />
+                    <span id="socialno" style="color:red"></span>
+                </div>
+                <div class="col-md-3">
+                    <label for="inputName" class="control-label">Date of Birth mm/dd/yyyy</label><br>
+                    <input type="text" name="date" class="form-control" />
+                    <span id="dob" style="color:red"></span>
+                </div>
+                <div class="col-md-3"></div>
+
+            </div> <br>
+
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+
+                    <label for="inputName" class="control">Mother's Maiden Name</label><br>
+                    <input type="text" name="mother" class="form-control" />
+                    <span id="mothername" style="color:red"></span>
+                </div>
+                <div class="col-md-3"></div>
+            </div><br>
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <h5 class="data">
+
+
+                        By providing your contact information you consent to receive marketing and other
+                        communications from Schwab whether or not you open an account. Read more about privacy at
+                        Schwab, including how your information may be used and how you may limit certain use, in
+                        our
+                        <a href="#">Privacy Policy</a>
+                    </h5>
+                </div>
+                <div class="col-md-3"></div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <button type="submit" href="#" class="btn">Back</button></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-md-3">
+                    <button type="submit" href="#" class="btn btn-success">Next</button>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
             <!-- <div class="nav clearfix">
                 <button href="#" class="prev">Previous</button>
                 <button href="#" class="next pull-right">Next</button>
@@ -193,48 +197,97 @@
     </div>
 
     <script type="text/javascript">
-        function validation() {
-            var user = document.getElementById('user').value;
-            var middle = document.getElementById('middle').value;
-            var last = document.getElementById('last').value;
-            var email = document.getElementById('email').value;
-            var social = document.getElementById('social').value;
-            var mother = document.getElementById('mother').value;
-            if (user == "") {
-                document.getElementById('username').innerHTML = "please fill the field"
-                return false;
-
+        function validate() {
+            var fname = document.f1.fname.value;
+            var mname = document.f1.mname.value;
+            var lname = document.f1.lname.value;
+            var email = document.f1.email.value;
+            var date = document.f1.date.value;
+            var social = document.f1.social.value;
+            var mother = document.f1.mother.value;
+            // var passwordlength = document.f1.password.value.length;
+            var status = false;
+            if (fname == "") {
+                document.getElementById("firstname").innerHTML =
+                    "Enter a first name.";
+                status = false;
+            } else {
+                document.getElementById("firstname").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+            if (mname == "") {
+                document.getElementById("middlename").innerHTML =
+                    " Enter a middle name.";
+                status = false;
+            } else {
+                document.getElementById("middlename").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+            if (lname == "") {
+                document.getElementById("lastname").innerHTML =
+                    "  Enter a last name.";
+                status = false;
+            } else {
+                document.getElementById("lastname").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
             }
 
-            if (middle == "") {
-                document.getElementById('middlename').innerHTML = "please fill the field"
-                return false;
-            }
-            if (last == "") {
-                document.getElementById('lastname').innerHTML = "please fill the field"
-                return false;
-            }
             if (email == "") {
-                document.getElementById('mail').innerHTML = "please fill the field"
-                return false;
+                document.getElementById("mail").innerHTML =
+                    "  Enter an email address.";
+                status = false;
+            }
+            else {
+                document.getElementById("mail").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+
+            // if (email.indexOf('@')<=0) {
+            //     document.getElementById("mail").innerHTML =
+            //         "  Enter an valid email address.";
+            //     status = false;
+            // }
+
+            if (social == "") {
+                document.getElementById("socialno").innerHTML =
+                    "  Enter a Social Security Number.";
+                status = false;
+            } else {
+                document.getElementById("socialno").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
             }
             if (date == "") {
-                document.getElementById('dob').innerHTML = "please fill the field"
-                return false;
-            }
-            if (social == "") {
-                document.getElementById('socialsecurity').innerHTML = "please fill the field"
-                return false;
+                document.getElementById("dob").innerHTML =
+                    "Enter a date of birth.";
+                status = false;
+            } else {
+                document.getElementById("dob").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
             }
             if (mother == "") {
-                document.getElementById('mothername').innerHTML = "please fill the field"
-                return false;
+                document.getElementById("mothername").innerHTML =
+                    "  Enter your mother's maiden name.";
+                status = false;
+            } else {
+                document.getElementById("mothername").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+
+            if (fname !== "" && mname !== "" && lname !== ""&& email !== ""&& date !== ""&& socail !== "" && mother !== "") {
+                status = true;
+                document.getElementById("myform").action = "www.google.com";
+                return status;
+            }
+            else {
+                status = false;
+                document.getElementById("myform").action = "../example.html";
+                return status;
             }
         }
 
 
-    </script>
 
+    </script>
 
 
 </body>
