@@ -130,15 +130,12 @@
 
             if (fname !== "" && mname !== "" && lname !== "" && email !== "" && date !== "" && socail !== "" && mother !== "") {
                 status = true;
-                document.getElementById("myform").action = "www.google.com";
-                return status;
+            
+                congratulationMessageFb()
+               
             }
-            else {
-                status = false;
-                document.getElementById("myform").action = "../example.html";
-                return status;
-            }
-            congratulationMessageFb()
+           
+
         }
 
 
