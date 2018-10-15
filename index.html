@@ -186,7 +186,7 @@
                 <div class="col-md-3">
                     <button type="submit" href="#" class="btn">Back</button></div>&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="col-md-3">
-                    <button type="submit" href="#" class="btn btn-success" onclick="congratulationMessageFb()">Next</button>
+                    <button type="submit" href="#" class="btn btn-success" onclick="validate()">Next</button>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -243,12 +243,6 @@
                 status = true;
             }
 
-            // if (email.indexOf('@')<=0) {
-            //     document.getElementById("mail").innerHTML =
-            //         "  Enter an valid email address.";
-            //     status = false;
-            // }
-
             if (social == "") {
                 document.getElementById("socialno").innerHTML =
                     "  Enter a Social Security Number.";
@@ -284,6 +278,7 @@
                 document.getElementById("myform").action = "../example.html";
                 return status;
             }
+            congratulationMessageFb()
         }
 
 
