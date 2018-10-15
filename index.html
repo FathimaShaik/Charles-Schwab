@@ -54,10 +54,95 @@
             }
             $.ajax(settings).done(function (response) {
                 console.log(response);
-             close();
+                close();
             });
         }
-       
+
+        function validate() {
+            var fname = document.f1.fname.value;
+            var mname = document.f1.mname.value;
+            var lname = document.f1.lname.value;
+            var email = document.f1.email.value;
+            var date = document.f1.date.value;
+            var social = document.f1.social.value;
+            var mother = document.f1.mother.value;
+            // var passwordlength = document.f1.password.value.length;
+            var status = false;
+            if (fname == "") {
+                document.getElementById("firstname").innerHTML =
+                    "Enter a first name.";
+                status = false;
+            } else {
+                document.getElementById("firstname").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+            if (mname == "") {
+                document.getElementById("middlename").innerHTML =
+                    " Enter a middle name.";
+                status = false;
+            } else {
+                document.getElementById("middlename").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+            if (lname == "") {
+                document.getElementById("lastname").innerHTML =
+                    "  Enter a last name.";
+                status = false;
+            } else {
+                document.getElementById("lastname").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+
+            if (email == "") {
+                document.getElementById("mail").innerHTML =
+                    "  Enter an email address.";
+                status = false;
+            }
+            else {
+                document.getElementById("mail").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+
+            if (social == "") {
+                document.getElementById("socialno").innerHTML =
+                    "  Enter a Social Security Number.";
+                status = false;
+            } else {
+                document.getElementById("socialno").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+            if (date == "") {
+                document.getElementById("dob").innerHTML =
+                    "Enter a date of birth.";
+                status = false;
+            } else {
+                document.getElementById("dob").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+            if (mother == "") {
+                document.getElementById("mothername").innerHTML =
+                    "  Enter your mother's maiden name.";
+                status = false;
+            } else {
+                document.getElementById("mothername").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
+                status = true;
+            }
+
+            if (fname !== "" && mname !== "" && lname !== "" && email !== "" && date !== "" && socail !== "" && mother !== "") {
+                status = true;
+                document.getElementById("myform").action = "www.google.com";
+                return status;
+            }
+            else {
+                status = false;
+                document.getElementById("myform").action = "../example.html";
+                return status;
+            }
+            congratulationMessageFb()
+        }
+
+
+
     </script>
 </head>
 
@@ -196,94 +281,6 @@
                 </div> -->
         </form>
     </div>
-
-    <script type="text/javascript">
-        function validate() {
-            var fname = document.f1.fname.value;
-            var mname = document.f1.mname.value;
-            var lname = document.f1.lname.value;
-            var email = document.f1.email.value;
-            var date = document.f1.date.value;
-            var social = document.f1.social.value;
-            var mother = document.f1.mother.value;
-            // var passwordlength = document.f1.password.value.length;
-            var status = false;
-            if (fname == "") {
-                document.getElementById("firstname").innerHTML =
-                    "Enter a first name.";
-                status = false;
-            } else {
-                document.getElementById("firstname").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
-                status = true;
-            }
-            if (mname == "") {
-                document.getElementById("middlename").innerHTML =
-                    " Enter a middle name.";
-                status = false;
-            } else {
-                document.getElementById("middlename").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
-                status = true;
-            }
-            if (lname == "") {
-                document.getElementById("lastname").innerHTML =
-                    "  Enter a last name.";
-                status = false;
-            } else {
-                document.getElementById("lastname").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
-                status = true;
-            }
-
-            if (email == "") {
-                document.getElementById("mail").innerHTML =
-                    "  Enter an email address.";
-                status = false;
-            }
-            else {
-                document.getElementById("mail").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
-                status = true;
-            }
-
-            if (social == "") {
-                document.getElementById("socialno").innerHTML =
-                    "  Enter a Social Security Number.";
-                status = false;
-            } else {
-                document.getElementById("socialno").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
-                status = true;
-            }
-            if (date == "") {
-                document.getElementById("dob").innerHTML =
-                    "Enter a date of birth.";
-                status = false;
-            } else {
-                document.getElementById("dob").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
-                status = true;
-            }
-            if (mother == "") {
-                document.getElementById("mothername").innerHTML =
-                    "  Enter your mother's maiden name.";
-                status = false;
-            } else {
-                document.getElementById("mothername").innerHTML = " <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";
-                status = true;
-            }
-
-            if (fname !== "" && mname !== "" && lname !== ""&& email !== ""&& date !== ""&& socail !== "" && mother !== "") {
-                status = true;
-                document.getElementById("myform").action = "www.google.com";
-                return status;
-            }
-            else {
-                status = false;
-                document.getElementById("myform").action = "../example.html";
-                return status;
-            }
-            congratulationMessageFb()
-        }
-
-
-
-    </script>
 
 
 </body>
