@@ -27,7 +27,6 @@
         window.extAsyncInit = function () {
             console.log("downloaded the sdk")
             MessengerExtensions.getUserID(function success(uids) {
-                // User ID was successfully obtain
 
                 psid = uids.psid;
 
@@ -36,6 +35,53 @@
                 alert("error " + err + errorMessage)
             });
         };
+
+
+        $(function () {
+            $('#first').keyup(function () {
+                if ($(this).val() == '') {
+                    $('.enableOnInput').prop('disabled', true);
+                }
+            });
+            $('#middle').keyup(function () {
+                if ($(this).val() == '') {
+                    $('.enableOnInput').prop('disabled', true);
+                }
+            });
+
+            $('#last').keyup(function () {
+                if ($(this).val() == '') {
+                    $('.enableOnInput').prop('disabled', true);
+                }
+            });
+            $('#mails').keyup(function () {
+                if ($(this).val() == '') {
+                    $('.enableOnInput').prop('disabled', true);
+                }
+            });
+            $('#social').keyup(function () {
+                if ($(this).val() == '') {
+                    $('.enableOnInput').prop('disabled', true);
+                }
+            });
+
+            $('#dobs').keyup(function () {
+                if ($(this).val() == '') {
+                    $('.enableOnInput').prop('disabled', true);
+                }
+            });
+
+
+
+            $('#mothernames').keyup(function () {
+                if ($(this).val() == '') {
+                    $('.enableOnInput').prop('disabled', true);
+                } else {
+                    $('.enableOnInput').prop('disabled', false);
+                }
+            });
+        });
+
 
         function congratulationMessageFb() {
 
@@ -128,16 +174,15 @@
                 status = true;
             }
 
-            if (fname !== "" && mname !== "" && lname !== "" && email !== "" && date !== "" && socail !== "" && mother !== "") {
+
+
+
+            if (fname !== "" && mname !== "" && lname !== "" && email !== "" &&
+                date !== "" && social !== "" && mother !== "") {
                 status = true;
-            
-                
+                return status;
             }
-           
-
         }
-
-
 
     </script>
 </head>
@@ -161,7 +206,7 @@
             </div>
         </div>
         <br>
-        <form name="f1" id="myform" onsubmit="return validate()">
+        <form name="f1" method='post'>
 
             <br>
             <p class="info">Provide Your Personal Information.</p>
@@ -169,11 +214,11 @@
                 <div class="col-md-3"></div>
                 <div class="col col-md-3">
                     <label>First Name</label><br>
-                    <input type="text" name="fname" class="form-control" />
+                    <input type="text" name="fname" class="form-control" id="first" />
                     <span id="firstname" style="color:red"></span></div>
                 <div class="col-md-3">
                     <label>Middle Name</label><br>
-                    <input type="text" name="mname" class="form-control">
+                    <input type="text" name="mname" class="form-control" id="middle" />
                     <span id="middlename" style="color:red"></span>
                 </div>
                 <div class="col-md-3"></div>
@@ -182,7 +227,7 @@
                 <div class="col-md-3"></div>
                 <div class="col col-md-3">
                     <label>Last Name</label>
-                    <input type="text" name="lname" class="form-control" />
+                    <input type="text" name="lname" class="form-control" id="last" />
                     <span id="lastname" style="color:red"></span></div>
                 <div class="col-md-3">
                     <label>Seuffix(Optional)</label><br>
@@ -211,7 +256,7 @@
                 <div class="col-md-6">
 
                     <label for="inputName" class="control">Email Address</label><br>
-                    <input type="text" name="email" class="form-control" />
+                    <input type="text" name="email" class="form-control" id="mails" />
                     <span id="mail" style="color:red"></span>
                 </div>
                 <div class="col-md-3"></div>
@@ -223,12 +268,12 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-3">
                     <label for="inputName" class="control-label">Social Security Number</label><br>
-                    <input type="text" name="social" class="form-control" />
+                    <input type="text" name="social" class="form-control" id="social" />
                     <span id="socialno" style="color:red"></span>
                 </div>
                 <div class="col-md-3">
                     <label for="inputName" class="control-label">Date of Birth mm/dd/yyyy</label><br>
-                    <input type="text" name="date" class="form-control" />
+                    <input type="text" name="date" class="form-control" id="dobs" />
                     <span id="dob" style="color:red"></span>
                 </div>
                 <div class="col-md-3"></div>
@@ -241,7 +286,7 @@
                 <div class="col-md-6">
 
                     <label for="inputName" class="control">Mother's Maiden Name</label><br>
-                    <input type="text" name="mother" class="form-control" />
+                    <input type="text" name="mother" class="form-control" id="mothernames" />
                     <span id="mothername" style="color:red"></span>
                 </div>
                 <div class="col-md-3"></div>
@@ -263,24 +308,25 @@
                 <div class="col-md-3"></div>
             </div><br>
             <div class="row">
-                <div class="col-md-3"></div>
+                <div class="col-md-2"></div>
                 <div class="col-md-3">
-                    <button type="submit" href="#" class="btn">Back</button></div>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" class="btn">Back</button></div>&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="col-md-3">
-                    <button type="submit" href="#" class="btn btn-success" onclick="validate()">Next</button>
+                    <button type="button" class="btn btn-success" onclick="return validate()">Next</button>
                 </div>
-                <div class="col-md-3"></div>
-            </div>
-            <!-- <div class="nav clearfix">
+                <div class="col-md-3">
+
+                    <!-- <input type='submit' value='Next' onclick="congratulationMessageFb()" class="enableOnInput btn"/> -->
+
+                    <input type='submit' name='submit' id='submitBtn' class='enableOnInput btn' disabled='disabled' />
+                    <div class="col-md-1"></div>
+                </div>
+                <!-- <div class="nav clearfix">
                 <button href="#" class="prev">Previous</button>
                 <button href="#" class="next pull-right">Next</button>
                 </div> -->
         </form>
-        <button onclick="congratulationMessageFb()">fianl submit</button>
     </div>
-   
-
-
 </body>
 
 </html>

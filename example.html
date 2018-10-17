@@ -1,131 +1,50 @@
+<!DOCTYPE html>
 <html>
-    <head>
-            
-    <link rel="stylesheet" href="style1.css">
-    <title>Charles Schwab</title>
-    </head>
+
+<head></head>
+<title>jQuery enable/disable button</title>
+<script type='text/javascript' src='http://code.jquery.com/jquery.min.js'></script>
+<script type='text/javascript'>
+    $(function () {
+        $('#searchInput').keyup(function () {
+            if ($(this).val() == '') {
+                $('.enableOnInput').prop('disabled', true);
+            } 
+        });
+        $('#search').keyup(function () {
+            if ($(this).val() == '') {
+                $('.enableOnInput').prop('disabled', true);
+            } 
+        });
+        $('#searchh').keyup(function () {
+            if ($(this).val() == '') {
+                $('.enableOnInput').prop('disabled', true);
+            } 
+        });
+        $('#searchs').keyup(function () {
+            if ($(this).val() == '') {
+                $('.enableOnInput').prop('disabled', true);
+            } 
+        });
+        $('#searchss').keyup(function () {
+            if ($(this).val() == '') {
+                $('.enableOnInput').prop('disabled', true);
+            } else {
+                $('.enableOnInput').prop('disabled', false);
+            }
+        });
+    }); 
+</script>
+
 <body>
-<script type="text/javascript">  
-function validate(){  
-var fname=document.f1.fname.value; 
- var mname=document.f1.mname.value;  
- var lname=document.f1.lname.value;  
- var email=document.f1.email.value;  
- var date=document.f1.date.value;  
- var social=document.f1.social.value;  
- var mother=document.f1.mother.value; 
-var passwordlength=document.f1.password.value.length;  
-var status=false;  
-if(fname==""){  
-document.getElementById("firstname").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
-status=false;
-}else{  
-document.getElementById("firstname").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-status=true;
-}  
-if(mname==""){  
-document.getElementById("middlename").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
-status=false;
-}else{  
-document.getElementById("middlename").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-status=true;
-}  
-if(lname==""){  
-document.getElementById("lastname").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
-status=false;
-}else{  
-document.getElementById("lastname").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-status=true;
-}  
-
-if(email==""){  
-document.getElementById("mail").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
-status=false;
-}else{  
-document.getElementById("mail").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-status=true;
-}  
-
-if(social==""){  
-document.getElementById("socialno").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
-status=false;
-}else{  
-document.getElementById("socialno").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-status=true;
-}  
-if(mother==""){  
-document.getElementById("mothername").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
-status=false;
-}else{  
-document.getElementById("mothername").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-status=true;
-}  
-
-if(email==""){  
-document.getElementById("mail").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
-status=false;
-}else{  
-document.getElementById("mail").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-status=true;
-}  
-if(date==""){  
-document.getElementById("dob").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Please enter your name";  
-status=false;
-}else{  
-document.getElementById("dob").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-status=true;
-}  
-
-
-
-
-if(passwordlength<6){  
-document.getElementById("passwordlocation").innerHTML=  
-" <img src='http://www.javatpoint.com/javascriptpages/images/unchecked.gif'/> Password must be greater than 6";  
-status=false; 
-}else{  
-document.getElementById("passwordlocation").innerHTML=" <img src='http://www.javatpoint.com/javascriptpages/images/checked.gif'/>";  
-}  
-  
-return status;  
-}  
-</script>  
-<form name="f1" action="http://www.javatpoint.com/javascriptpages/valid.jsp" onsubmit="return validate()">  
-<table>
-<tr><td>Name:</td><td><input type="text" name="fname"/>  
-<span id="firstname" style="color:red"></span></td>
-<td>Name:</td><td><input type="text" name="mname"/>  
-    <span id="middlename" style="color:red"></span></td>
-</tr> 
-<tr>
-        <td>Name:</td><td><input type="text" name="lname"/>  
-            <span id="lastname" style="color:red"></span></td>
-    <td>Password:</td><td><input type="password" name="password"/>  
-<span id="passwordlocation" style="color:red"></span></td></tr>
-<tr>
-        <td>Name:</td><td><input type="text" name="email"/>  
-            <span id="mail" style="color:red"></span></td></tr>
-            <tr><td>Name:</td><td><input type="text" name="social"/>  
-                <span id="socialno" style="color:red"></span></td>
-                <td>Name:</td><td><input type="text" name="date"/>  
-                    <span id="dob" style="color:red"></span></td>
-            </tr>
-
-              <tr>  <td>Name:</td><td><input type="text" name="mother"/>  
-                    <span id="mothername" style="color:red"></span></td>
-                </tr>
-<tr><td colspan="2"><input type="submit" value="register"/>  </td></tr>
-</table>
-</form>  
+    <form method='post'>
+        <input type='text' name='searchQuery' id='searchInput' />
+        <input type='text' name='searchQuery' id='search' />
+        <input type='text' name='searchQuery' id='searchh' />
+        <input type='text' name='searchQuery' id='searchs' />
+        <input type='text' name='searchQuery' id='searchss' />
+        <input type='submit' name='submit' id='submitBtn' class='enableOnInput' disabled='disabled' />
+    </form>
 </body>
-</html>
 
- 
+</html>
